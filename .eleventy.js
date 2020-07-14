@@ -11,7 +11,7 @@ module.exports = function (config) {
 
 		if (slidesWithoutOrder.length) {
 			slidesWithoutOrder.forEach(s => {
-				console.log(`⚠️ Slide ${s.fileSlug} has no order`)
+				console.log(`⚠️ Slide "${s.fileSlug}" has no order`)
 			})
 			return unorderedSlides
 		}
@@ -32,6 +32,11 @@ module.exports = function (config) {
 	})
 
 	config.addPassthroughCopy('src/styles')
+	config.addPassthroughCopy('src/scripts')
+
+	config.setBrowserSyncConfig({
+		notify: true
+	})
 
 	return {
 		passthroughFileCopy: true,
